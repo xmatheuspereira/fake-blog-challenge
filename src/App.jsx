@@ -1,27 +1,22 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
+// import PostsPage from './pages/PostsPage';
+// import UsersPage from './pages/UsersPage';
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route exact path="/" component={HomePage} />
+          {/* <Route path="/posts" component={PostsPage} />
+          <Route path="/users" component={UsersPage} /> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
