@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 // import PostsPage from './pages/PostsPage';
 import UsersPage from './pages/UsersPage/UsersPage';
+import './App.css';
 
 function App() {
   return (

@@ -1,18 +1,12 @@
 import React from 'react';
-import {
-  Container, Row, Col, Card, Button,
-} from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Container, Row } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { getUsers } from '../../services/api';
+import UserCard from '../../components/UserCard/UserCard';
+import './UsersPage.css';
 
 function UsersPage() {
-  const navigate = useNavigate();
   const { data: users, isLoading, isError } = useQuery('users', getUsers);
-
-  const handleClick = (userId) => {
-    navigate(`/users/${userId}`);
-  };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -23,20 +17,10 @@ function UsersPage() {
   }
 
   return (
-    <Container>
-      <Row className="mt-4">
+    <Container className="container-users">
+      <Row className="mt-4 users-grid">
         {users.data.map((user) => (
-          <Col key={user.id} className="mb-4">
-            <Card>
-              <Card.Body>
-                <Card.Title>{user.name}</Card.Title>
-                <Card.Text>{user.email}</Card.Text>
-                <Button variant="primary" onClick={() => handleClick(user.id)}>
-                  Ver detalhes
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+          <UserCard key={user.id} id={user.id} username={user.username} />
         ))}
       </Row>
     </Container>
