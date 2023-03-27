@@ -1,0 +1,41 @@
+.CommentCard {
+  margin-bottom: 10px;
+}
+
+.CommentCard .card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.CommentCard .card-text {
+  margin-left: 50px;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.comment-body {
+  font-size: 0.9rem;
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+
+.avatar-email {
+  padding-left: 10px;
+}
+
+.avatar-email.card-subtitle {
+  font-weight: 600;
+}
+
+.comment {
+  background-color: #EAEAEA;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
