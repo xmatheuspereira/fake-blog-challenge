@@ -4,8 +4,12 @@ import {
 } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import {
+  FaUser, FaEnvelope, FaPhone, FaGlobe, FaLocationArrow, FaBuilding,
+} from 'react-icons/fa';
+import Avatar from 'react-avatar';
 import { getUserDetails } from '../../services/api';
-// import './UserDetailsPage.css';
+import './UserDetailsPage.css';
 
 function UserDetailsPage() {
   const { id } = useParams();
@@ -20,37 +24,45 @@ function UserDetailsPage() {
     return <div>Error ao buscar detalhes do usuário</div>;
   }
 
+  const generateRandomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+
   return (
-    <Container className="mt-4">
+    <Container className="container-user-details">
       <Row>
-        <Col sm={12} md={6} lg={4}>
+        <Col>
           <Card>
-            <Card.Img variant="top" src="https://via.placeholder.com/150" />
+            <Avatar
+              name={user.data.name}
+              color={generateRandomColor()}
+              round
+              size="250"
+              className="user-avatar"
+            />
             <Card.Body>
-              <Card.Title>{user.data.name}</Card.Title>
+              <Card.Title className="user-name">{user.data.name}</Card.Title>
               <Card.Text>
-                <strong>Username: </strong>
+                <FaUser className="main-icons" />
                 {user.data.username}
               </Card.Text>
               <Card.Text>
-                <strong>Email: </strong>
+                <FaEnvelope className="main-icons" />
                 {user.data.email}
               </Card.Text>
               <Card.Text>
-                <strong>Phone: </strong>
+                <FaPhone className="main-icons" />
                 {user.data.phone}
               </Card.Text>
               <Card.Text>
-                <strong>Website: </strong>
+                <FaGlobe className="main-icons" />
                 {user.data.website}
               </Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        <Col sm={12} md={6} lg={8}>
+        <Col>
           <Card>
             <Card.Body>
-              <Card.Title>Address</Card.Title>
+              <Card.Title><FaLocationArrow /></Card.Title>
               <Card.Text>
                 {user.data.address.street}
                 ,
@@ -63,10 +75,10 @@ function UserDetailsPage() {
           </Card>
           <Card className="mt-4">
             <Card.Body>
-              <Card.Title>Company</Card.Title>
+              <Card.Title><FaBuilding /></Card.Title>
               <Card.Text>{user.data.company.name}</Card.Text>
-              <Card.Text>{user.data.company.catchPhrase}</Card.Text>
-              <Card.Text>{user.data.company.bs}</Card.Text>
+              <Card.Text className="company-info">{user.data.company.catchPhrase}</Card.Text>
+              <Card.Text className="company-info">{user.data.company.bs}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
