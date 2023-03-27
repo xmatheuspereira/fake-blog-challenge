@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import Avatar from 'react-avatar';
 import { useNavigate } from 'react-router-dom';
 import './UserCard.css';
 
@@ -13,10 +14,7 @@ function UserCard({ id, username }) {
 
   return (
     <Card onClick={handleClick} className="user-card">
-      <Card.Img
-        src="https://via.placeholder.com/150"
-        className="user-avatar"
-      />
+      <Avatar name={username} colors={['#a1c2fa', '#e6e8fa']} size="150" round className="user-avatar" />
       <Card.Body>
         <Card.Title className="user-name">{username}</Card.Title>
       </Card.Body>

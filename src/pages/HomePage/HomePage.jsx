@@ -38,7 +38,7 @@ function HomePage() {
               <Link to={`/post/${post.id}`}>
                 <PostCard
                   title={post.title}
-                  image="https://via.placeholder.com/300x200"
+                  image={`https://source.unsplash.com/random/300x200?sig=${post.id}`}
                 />
               </Link>
             </Col>
