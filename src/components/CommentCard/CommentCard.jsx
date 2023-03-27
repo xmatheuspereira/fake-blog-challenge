@@ -6,7 +6,7 @@ import './CommentCard.css';
 
 function CommentCard({ email, body, avatarColor }) {
   return (
-    <div className='comment'>
+    <div className="comment">
       <div className="d-flex">
         <Avatar size="40" round name={email} color={avatarColor} />
         <Card.Subtitle className="avatar-email">

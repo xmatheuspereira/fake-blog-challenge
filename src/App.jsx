@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router, Route, Routes,
 } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import PostPage from './pages/PostPage/PostPage';
 import UsersPage from './pages/UsersPage/UsersPage';
@@ -20,6 +21,7 @@ function App() {
           <Route path="/users" element={<UsersPage />} />
           <Route path="/users/:id" element={<UserDetailsPage />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
