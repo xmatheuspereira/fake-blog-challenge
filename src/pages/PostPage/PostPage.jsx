@@ -37,6 +37,10 @@ function PostPage() {
             <h1>{post.data.title}</h1>
           </div>
           <p>{post.data.body}</p>
+          <p>{post.data.body}</p>
+          <p>{post.data.body}</p>
+          <p>{post.data.body}</p>
+          <p>{post.data.body}</p>
         </Col>
       </Row>
       <Row>
