@@ -6,6 +6,8 @@ const api = axios.create({
 
 export const getPosts = () => api.get('/posts');
 
+export const getPostById = (postId) => api.get(`/posts/${postId}`);
+
 export const getComments = (postId) => api.get(`/posts/${postId}/comments`);
 
 export const getUsers = () => api.get('/users');

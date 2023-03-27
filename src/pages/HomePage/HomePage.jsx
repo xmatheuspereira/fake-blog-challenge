@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import { getPosts } from '../../services/api';
 import PostCard from '../../components/PostCard/PostCard';
 
@@ -34,10 +35,12 @@ function HomePage() {
         >
           {posts.data.slice(0, visiblePosts).map((post) => (
             <Col key={post.id} xs={12} sm={6} md={4} lg={3}>
-              <PostCard
-                title={post.title}
-                image="https://via.placeholder.com/300x200"
-              />
+              <Link to={`/post/${post.id}`}>
+                <PostCard
+                  title={post.title}
+                  image="https://via.placeholder.com/300x200"
+                />
+              </Link>
             </Col>
           ))}
         </InfiniteScroll>
