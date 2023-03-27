@@ -23,3 +23,22 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+.user-card:hover {
+  animation-name: moveUpDown;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

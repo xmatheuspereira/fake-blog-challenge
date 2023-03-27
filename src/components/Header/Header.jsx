@@ -15,12 +15,12 @@ function Header() {
           <ul>
             <li>
               <Link to="/">
-                <FaBloggerB style={{ color: 'black' }} className="icons"/>
+                <FaBloggerB style={{ color: 'black' }} className="icons" />
               </Link>
             </li>
             <li>
               <Link to="/users">
-                <FaUsers style={{ color: 'black' }} className="icons"/>
+                <FaUsers style={{ color: 'black' }} className="icons" />
               </Link>
             </li>
           </ul>
