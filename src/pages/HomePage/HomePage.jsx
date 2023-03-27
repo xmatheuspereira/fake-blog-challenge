@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { getPosts } from '../../services/api';
 import PostCard from '../../components/PostCard/PostCard';
+import './HomePage.css';
 
 function HomePage() {
   const [visiblePosts, setVisiblePosts] = useState(10);
@@ -20,28 +21,22 @@ function HomePage() {
   }
 
   return (
-    <Container>
+    <Container className="container-posts">
       <Row>
         <InfiniteScroll
+          className="post-grid"
           dataLength={visiblePosts}
           next={loadMore}
           hasMore={visiblePosts < 100}
           loader={<h4>Loading...</h4>}
-          endMessage={(
-            <p style={{ textAlign: 'center' }}>
-              <b>Yay! Você viu todos os posts!</b>
-            </p>
-          )}
         >
           {posts.data.slice(0, visiblePosts).map((post) => (
-            <Col key={post.id} xs={12} sm={6} md={4} lg={3}>
-              <Link to={`/post/${post.id}`}>
-                <PostCard
-                  title={post.title}
-                  image={`https://source.unsplash.com/random/300x200?sig=${post.id}`}
-                />
-              </Link>
-            </Col>
+            <Link to={`/post/${post.id}`}>
+              <PostCard
+                title={post.title}
+                image={`https://source.unsplash.com/random/300x200?sig=${post.id}`}
+              />
+            </Link>
           ))}
         </InfiniteScroll>
       </Row>
