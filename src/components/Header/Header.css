@@ -1,5 +1,5 @@
 .header {
-  background-color: #f8f9fa;
+  background-color: white;
   padding: 1rem 0;
 }
 
@@ -13,8 +13,8 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  margin: 0;
+  padding: 0;
+  margin-left: -50px;
 }
 
 .navigation ul {
@@ -26,4 +26,12 @@
 
 .navigation li:not(:last-child) {
   margin-right: 1rem;
+}
+
+.icons {
+  font-size: 20px;
+}
+
+.icons:hover {
+  transform: translateY(-3px);
 }
